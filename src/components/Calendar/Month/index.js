@@ -11,10 +11,13 @@ import {
 import cx from "classnames";
 import styles from "./Month.module.scss";
 
+
+const titleWeekClasses =cx(styles["day-cell"],styles['red-week']);
+
 const TitleWeek = () => {
   const titles = ["S", "M", "T", "W", "T", "F", "S"];
   return titles.map((t, i) => (
-    <span className={styles["day-cell"]} key={"week" + i}>
+    <span className={titleWeekClasses} key={"week" + i}>
       {t}
     </span>
   ));
@@ -85,7 +88,7 @@ const Month = (props) => {
     <div key={"div" + i}>{elem}</div>
   ));
   return (
-    <div>
+    
       <article className={styles.article}>
         <div className={styles.wraper}>
           <button className={styles.btn} onClick={() => changeMonth(false)}>
@@ -101,7 +104,6 @@ const Month = (props) => {
         </div>
         <div>{ShowWeeks}</div>
       </article>
-    </div>
   );
 };
 
